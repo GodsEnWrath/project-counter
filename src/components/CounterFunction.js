@@ -1,4 +1,15 @@
 import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles(theme => ({
+  Button: {
+    margin: theme.spacing(1),
+  },
+  input: {
+    display: 'none',
+  },
+}));
 
 
 export default function CounterFunction() {
@@ -7,19 +18,19 @@ export default function CounterFunction() {
   return (
     <div>
       <h2>Count: {count}</h2>
-      <button onClick={() => setCount(count + 1)}>
+      <Button variant="outlined" color="primary" className={useStyles} onClick={() => setCount(count + 1)}>
         +
-      </button>
-      <button onClick={() => {
+      </Button>
+      <Button variant="outlined" color="primary" className={useStyles} onClick={() => {
         if(count <= 0){
           setCount(count=0)
         } else {setCount(count - 1)}
       }}>
         -
-      </button>
-      <button onClick={() => setCount(0)}>
+      </Button>
+      <Button variant="outlined" color="primary" className={useStyles} onClick={() => setCount(0)}>
         Reset
-      </button>
+      </Button>
     </div>
   );
  }
